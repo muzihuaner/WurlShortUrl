@@ -48,8 +48,8 @@ if (empty($long_url)) {
 } else if (strpos($long_url,'http') !== false){
     //初始化 CURL
     $ch = curl_init();
-    //请求地址 
-    curl_setopt($ch, CURLOPT_URL, 'https://api.weixin.qq.com/cgi-bin/shorturl?access_token='.getToken());
+    //请求地址
+    curl_setopt($ch, CURLOPT_URL, 'https://api.weixin.qq.com/cgi-bin/shorturl?access_token='.getNewToken($appid,$appsecret));
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     $postdata =  '{"action":"long2short","long_url":"'.$long_url.'"}'; 
     curl_setopt($ch, CURLOPT_POSTFIELDS, $postdata);
